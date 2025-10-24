@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Hammer, 
-  Users, 
-  Package, 
-  Wrench, 
-  Ruler, 
-  ChevronDown, 
+import { Link } from 'react-router-dom';
+import {
+  Hammer,
+  Users,
+  Package,
+  Wrench,
+  Ruler,
+  ClipboardList,
+  ChevronDown,
   ChevronUp,
   ArrowRight
 } from 'lucide-react';
@@ -16,86 +18,112 @@ interface ServiceCardProps {
   icon: string;
   description: string;
   details?: string[];
+  image?: string;
 }
 
 const iconMap = {
   construction: Hammer,
   consultancy: Users,
-  supply: Package,
+  material: Package,
   renovation: Wrench,
   design: Ruler,
+  management: ClipboardList,
 };
 
-export default function ServiceCard({ title, icon, description, details = [] }: ServiceCardProps) {
+const imageMap: { [key: string]: string } = {
+  construction: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800',
+  consultancy: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
+  material: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800',
+  renovation: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800',
+  design: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=800',
+  management: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
+};
+
+export default function ServiceCard({ title, icon, description, details = [], image }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const IconComponent = iconMap[icon as keyof typeof iconMap] || Hammer;
+  const serviceImage = image || imageMap[icon as keyof typeof imageMap] || imageMap.construction;
 
   return (
     <motion.div
-      className="bg-gradient-to-br from-purple-900/20 to-red-900/20 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6 hover:border-gold-400/50 transition-all duration-300 group"
-      whileHover={{ scale: 1.02, y: -5 }}
+      className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+      whileHover={{ y: -5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center mb-4">
-        <div className="p-3 bg-gradient-to-r from-purple-600 to-red-600 rounded-lg mr-4 group-hover:from-gold-500 group-hover:to-gold-600 transition-all duration-300">
-          <IconComponent className="w-6 h-6 text-white" />
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={serviceImage}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+        <div className="absolute bottom-4 left-4 flex items-center">
+          <div className="p-3 bg-secondary rounded-lg mr-3">
+            <IconComponent className="w-6 h-6 text-white" />
+          </div>
+          <h3 className="text-xl font-bold text-white">
+            {title}
+          </h3>
         </div>
-        <h3 className="text-xl font-bold text-white group-hover:text-gold-300 transition-colors">
-          {title}
-        </h3>
       </div>
+
+      <div className="p-6">
       
-      <p className="text-gray-300 mb-4 leading-relaxed">
-        {description}
-      </p>
+        <p className="text-gray-700 mb-4 leading-relaxed">
+          {description}
+        </p>
 
-      <AnimatePresence>
-        {isExpanded && details.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mb-4 overflow-hidden"
-          >
-            <div className="bg-black/20 rounded-lg p-4 border border-purple-500/20">
-              <h4 className="text-gold-300 font-semibold mb-2">Service Details:</h4>
-              <ul className="space-y-2">
-                {details.map((detail, index) => (
-                  <li key={index} className="text-gray-300 flex items-start">
-                    <ArrowRight className="w-4 h-4 text-gold-400 mr-2 mt-0.5 flex-shrink-0" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {isExpanded && details.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="mb-4 overflow-hidden"
+            >
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h4 className="text-primary font-semibold mb-2">Service Details:</h4>
+                <ul className="space-y-2">
+                  {details.map((detail, index) => (
+                    <li key={index} className="text-gray-700 flex items-start text-sm">
+                      <ArrowRight className="w-4 h-4 text-secondary mr-2 mt-0.5 flex-shrink-0" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      <div className="flex gap-2">
-        {details.length > 0 && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-red-600 text-white rounded-lg hover:from-gold-500 hover:to-gold-600 transition-all duration-300 group/btn"
+        <div className="flex gap-2 flex-wrap">
+          {details.length > 0 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all duration-300"
+            >
+              <span className="mr-2 text-sm">
+                {isExpanded ? 'Show Less' : 'View Details'}
+              </span>
+              {isExpanded ? (
+                <ChevronUp className="w-4 h-4" />
+              ) : (
+                <ChevronDown className="w-4 h-4" />
+              )}
+            </button>
+          )}
+
+          <Link
+            to="/contact"
+            className="flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-dark transition-all duration-300 font-medium"
           >
-            <span className="mr-2">
-              {isExpanded ? 'Show Less' : 'View Details'}
-            </span>
-            {isExpanded ? (
-              <ChevronUp className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
-            ) : (
-              <ChevronDown className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
-            )}
-          </button>
-        )}
-        
-        <button className="flex items-center px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-black rounded-lg hover:from-gold-400 hover:to-gold-500 transition-all duration-300 font-semibold group/btn">
-          <span className="mr-2">Get Quote</span>
-          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+            <span className="mr-2 text-sm">Get Quote</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

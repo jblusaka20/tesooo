@@ -4,12 +4,14 @@ import { ArrowDown, CheckCircle, Clock, MapPin, Phone, Mail, CalendarClock, Arro
 import ServiceCard from '../components/ServiceCard';
 import ProjectCard from '../components/ProjectCard';
 import StatCounter from '../components/StatCounter';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const HomePage: React.FC = () => {
+  useScrollAnimation();
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[600px] flex items-center">
+      <section id="hero" className="relative h-screen min-h-[600px] flex items-center">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)' }}
@@ -83,11 +85,11 @@ const HomePage: React.FC = () => {
             <div className="animate-on-scroll">
               <h3 className="text-2xl font-bold text-primary mb-4">Building Excellence Since 2013</h3>
               <p className="text-gray-700 mb-6">
-                Teso Works & Supply Ltd is a premier construction company dedicated to providing exceptional quality in construction, consultancy, and supply of building materials across Zambia. Founded in 2013, we have built our reputation on delivering innovative and sustainable solutions for all your building needs.
+                Teso Works & Supply Ltd is a professional company dedicated to providing high-quality engineering, construction, and supply solutions across various sectors. We are committed to excellence, innovation, and customer satisfaction, ensuring that every project we handle meets the highest standards of quality and reliability.
               </p>
-              
+
               <p className="text-gray-700 mb-8">
-                Our team of highly skilled professionals brings expertise and passion to every project, ensuring that we not only meet but exceed client expectations. We believe in combining traditional craftsmanship with modern techniques to create structures that stand the test of time.
+                Founded in 2013, we have built our reputation on delivering innovative and sustainable solutions for all your building needs. Our team of highly skilled professionals brings expertise and passion to every project, ensuring that we not only meet but exceed client expectations.
               </p>
               
               <div className="mb-8">
@@ -381,7 +383,7 @@ const HomePage: React.FC = () => {
             
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-lg shadow-md">
-                <form>
+                <form onSubmit={(e) => { e.preventDefault(); alert('Thank you for your message! We will get back to you soon.'); }}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
