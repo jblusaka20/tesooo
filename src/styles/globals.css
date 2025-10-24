@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 26, 15, 53;
+    --color-primary-dark: 13, 7, 33;
+    --color-secondary: 196, 30, 58;
+    --color-secondary-dark: 160, 24, 48;
+    --color-accent: 255, 215, 0;
+    --color-accent-dark: 218, 165, 32;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-700 font-normal leading-relaxed;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 font-bold leading-tight;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  img {
+    @apply transition-opacity duration-300;
+  }
+
+  img.lazy {
+    @apply opacity-0;
+  }
+
+  img.loaded {
+    @apply opacity-100;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto;
+    max-width: 1280px;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply bg-secondary text-white hover:bg-secondary-dark shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white shadow-md hover:shadow-lg;
+  }
+
+  .nav-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-secondary after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+}
+
+@layer utilities {
+  .animate-fadeUp {
+    animation: fadeUp 1s ease-out;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 2s ease infinite;
+  }
+
+  .animate-flame {
+    animation: flame 3s ease-in-out infinite;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes flame {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(1deg);
+  }
+}
+
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize images for better performance */
+img {
+  max-width: 100%;
+  height: auto;
+  loading: lazy;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improved scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-dark);
+}
+
+/* Loading state styles */
+.loading {
+  @apply animate-pulse bg-gray-200;
+}
+
+/* Dragon theme specific styles */
+.dragon-scale {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(26, 15, 53, 0.9) 25%, rgba(13, 7, 33, 0.9) 25%, rgba(13, 7, 33, 0.9) 50%, rgba(26, 15, 53, 0.9) 50%, rgba(26, 15, 53, 0.9) 75%, rgba(13, 7, 33, 0.9) 75%, rgba(13, 7, 33, 0.9));
+  background-size: 10px 10px;
+}
+
+.dragon-fire {
+  background: linear-gradient(45deg, 
+    rgba(196, 30, 58, 1) 0%, 
+    rgba(255, 215, 0, 1) 50%, 
+    rgba(196, 30, 58, 1) 100%);
+  background-size: 200% 200%;
+  animation: flame 3s ease infinite;
+}
+
+/* Enhanced button styles */
+.btn-dragon {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-dragon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-dragon:hover::before {
+  left: 100%;
+}
+
+.btn-dragon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
+}
