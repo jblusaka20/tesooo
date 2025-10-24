@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
       <section className="py-20" id="about">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Who We Are</span>
+            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Who We Are<br></br></span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-secondary">
               About Teso Works & Supply Ltd
             </h2>
@@ -154,7 +154,7 @@ const HomePage: React.FC = () => {
       <section className="py-20 bg-gray-50" id="services">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">What We Offer</span>
+            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">What We <br></br></span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-secondary">
               Our Services
             </h2>
@@ -256,7 +256,7 @@ const HomePage: React.FC = () => {
       <section className="py-20" id="projects">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Our Portfolio</span>
+            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Our Portfolio<br></br></span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-secondary">
               Featured Projects
             </h2>
@@ -340,7 +340,7 @@ const HomePage: React.FC = () => {
       <section className="py-20" id="contact">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Get in Touch</span>
+            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Get in Touch<br></br></span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-secondary">
               Contact Us
             </h2>
