@@ -88,57 +88,31 @@ const HomePage: React.FC = () => {
                 Teso Works & Supply Ltd is a professional company dedicated to providing high-quality engineering, construction, and supply solutions across various sectors. We are committed to excellence, innovation, and customer satisfaction, ensuring that every project we handle meets the highest standards of quality and reliability.
               </p>
 
-              <p className="text-gray-700 mb-8">
-                Founded in 2013, we have built our reputation on delivering innovative and sustainable solutions for all your building needs. Our team of highly skilled professionals brings expertise and passion to every project, ensuring that we not only meet but exceed client expectations.
-              </p>
-              
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold mb-4 text-primary">Why Choose Teso Works?</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-secondary mr-3 mt-1">✓</span>
-                    <span className="text-gray-700"><strong>15+ Years of Experience:</strong> Proven track record in delivering quality construction projects across Zambia</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-secondary mr-3 mt-1">✓</span>
-                    <span className="text-gray-700"><strong>Comprehensive Services:</strong> From design to completion, we handle every aspect of your construction needs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-secondary mr-3 mt-1">✓</span>
-                    <span className="text-gray-700"><strong>Quality Materials:</strong> We source only the finest building materials from trusted suppliers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-secondary mr-3 mt-1">✓</span>
-                    <span className="text-gray-700"><strong>Professional Team:</strong> Skilled craftsmen, engineers, and project managers dedicated to excellence</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-accent rounded-full flex-shrink-0 flex items-center justify-center mr-4">
                     <CheckCircle className="text-secondary" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Quality Assurance</h3>
+                    <h4 className="text-xl font-semibold mb-2">Quality Assurance</h4>
                     <p className="text-gray-600">We maintain the highest standards in every aspect of our work</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-accent rounded-full flex-shrink-0 flex items-center justify-center mr-4">
                     <Clock className="text-secondary" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Timely Delivery</h3>
+                    <h4 className="text-xl font-semibold mb-2">Timely Delivery</h4>
                     <p className="text-gray-600">We understand the importance of completing projects on schedule</p>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8">
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="inline-flex items-center px-6 py-3 bg-secondary text-white font-medium rounded-md transition-all hover:bg-secondary-dark hover:shadow-lg transform hover:-translate-y-0.5"
                 >
                   Learn More About Us
@@ -161,82 +135,22 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard 
-              title="Construction" 
+            <ServiceCard
+              title="Construction"
               icon="construction"
               description="We provide premium residential and commercial construction using modern techniques and reliable project management to deliver timely results."
-              details={[
-                "Residential construction and custom homes",
-                "Commercial buildings and office complexes",
-                "Industrial facilities and warehouses",
-                "Infrastructure development projects",
-                "Site preparation and foundation work"
-              ]}
             />
-            
-            <ServiceCard 
-              title="Consultancy" 
+
+            <ServiceCard
+              title="Consultancy"
               icon="consultancy"
               description="Our expert consultancy service supports your project planning, architectural design, and management to ensure successful completion."
-              details={[
-                "Project feasibility studies and planning",
-                "Construction management consulting",
-                "Cost estimation and budgeting",
-                "Quality assurance and control",
-                "Regulatory compliance guidance"
-              ]}
             />
-            
-            <ServiceCard 
-              title="Material Supply" 
+
+            <ServiceCard
+              title="Material Supply"
               icon="material"
               description="We supply top-grade building materials and equipment, sourced from trusted partners, to meet your construction needs."
-              details={[
-                "Cement, steel, and concrete materials",
-                "Roofing and insulation materials",
-                "Electrical and plumbing supplies",
-                "Construction tools and equipment",
-                "Bulk material delivery services"
-              ]}
-            />
-            
-            <ServiceCard 
-              title="Renovation & Repairs" 
-              icon="renovation"
-              description="We offer professional renovation and repair services to restore and enhance your existing buildings with modern touches."
-              details={[
-                "Home renovations and extensions",
-                "Commercial space refurbishment",
-                "Structural repairs and reinforcement",
-                "Interior and exterior upgrades",
-                "Emergency repair services"
-              ]}
-            />
-            
-            <ServiceCard 
-              title="Architectural Design" 
-              icon="design"
-              description="Our architectural team creates innovative, functional designs that balance aesthetics with practical considerations."
-              details={[
-                "Custom architectural design services",
-                "3D modeling and visualization",
-                "Building permits and approvals",
-                "Sustainable design solutions",
-                "Interior design and space planning"
-              ]}
-            />
-            
-            <ServiceCard 
-              title="Project Management" 
-              icon="management"
-              description="We provide comprehensive project management services to ensure your construction project stays on time and within budget."
-              details={[
-                "End-to-end project coordination",
-                "Timeline and milestone management",
-                "Budget control and cost management",
-                "Quality control and inspections",
-                "Stakeholder communication and reporting"
-              ]}
             />
           </div>
           

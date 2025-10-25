@@ -110,57 +110,25 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
               </NavLink>
             )}
 
-            {isHomePage ? (
-              <ScrollLink
-                to="about"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                className={`block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0 cursor-pointer
-                  ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary after:w-0
-                  after:transition-all after:duration-300 hover:after:w-full`}
-                onClick={closeMenu}
-              >
-                About
-              </ScrollLink>
-            ) : (
-              <NavLink
-                to="/about"
-                className={({ isActive }) => `block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0
-                  ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary ${isActive ? 'after:w-full' : 'after:w-0'}
-                  after:transition-all after:duration-300 hover:after:w-full`}
-                onClick={closeMenu}
-              >
-                About
-              </NavLink>
-            )}
+            <NavLink
+              to="/about"
+              className={({ isActive }) => `block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0
+                ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary ${isActive ? 'after:w-full' : 'after:w-0'}
+                after:transition-all after:duration-300 hover:after:w-full`}
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
 
-            {isHomePage ? (
-              <ScrollLink
-                to="services"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                className={`block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0 cursor-pointer
-                  ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary after:w-0
-                  after:transition-all after:duration-300 hover:after:w-full`}
-                onClick={closeMenu}
-              >
-                Services
-              </ScrollLink>
-            ) : (
-              <NavLink
-                to="/services"
-                className={({ isActive }) => `block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0
-                  ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary ${isActive ? 'after:w-full' : 'after:w-0'}
-                  after:transition-all after:duration-300 hover:after:w-full`}
-                onClick={closeMenu}
-              >
-                Services
-              </NavLink>
-            )}
+            <NavLink
+              to="/services"
+              className={({ isActive }) => `block py-3 md:py-0 md:px-4 font-medium relative after:absolute after:h-0.5 after:bg-secondary after:bottom-0 after:left-0
+                ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'} hover:text-secondary ${isActive ? 'after:w-full' : 'after:w-0'}
+                after:transition-all after:duration-300 hover:after:w-full`}
+              onClick={closeMenu}
+            >
+              Services
+            </NavLink>
 
             {isHomePage ? (
               <ScrollLink

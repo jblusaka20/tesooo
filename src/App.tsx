@@ -13,12 +13,13 @@ import FAQPage from './pages/FAQPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ScrollToTop from './components/ScrollToTop';
+import RouteScrollHandler from './components/RouteScrollHandler';
 import './styles/globals.css';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <ScrollToTop />
+      <RouteScrollHandler />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
