@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
-import logo from '../assets/logo1-removebg-preview_upscayl_10x_realesrgan-x4plus.png';
+import logo from '../assets/logo1-removebg-preview.png';
 
 interface HeaderProps {
   isScrolled: boolean;
