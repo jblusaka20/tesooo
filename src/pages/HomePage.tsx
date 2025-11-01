@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowDown, CheckCircle, Clock, MapPin, Phone, Mail, CalendarClock, ArrowRight } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCardSimple from '../components/ProjectCardSimple';
 import StatCounter from '../components/StatCounter';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -192,39 +192,39 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard 
-              title="Luxury Villa Complex" 
-              category="Residential Development" 
+            <ProjectCardSimple
+              title="Luxury Villa Complex"
+              category="Residential Development"
               image="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
-            
-            <ProjectCard 
-              title="Modern Office Complex" 
-              category="Commercial Building" 
+
+            <ProjectCardSimple
+              title="Modern Office Complex"
+              category="Commercial Building"
               image="https://images.pexels.com/photos/273209/pexels-photo-273209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
-            
-            <ProjectCard 
-              title="Manufacturing Plant" 
-              category="Industrial Facility" 
+
+            <ProjectCardSimple
+              title="Manufacturing Plant"
+              category="Industrial Facility"
               image="https://images.pexels.com/photos/1337247/pexels-photo-1337247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
-            
-            <ProjectCard 
-              title="Kalulushi Shopping Center" 
-              category="Commercial Retail" 
+
+            <ProjectCardSimple
+              title="Kalulushi Shopping Center"
+              category="Commercial Retail"
               image="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
-            
-            <ProjectCard 
-              title="Riverside Apartments" 
-              category="Residential Housing" 
+
+            <ProjectCardSimple
+              title="Riverside Apartments"
+              category="Residential Housing"
               image="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
-            
-            <ProjectCard 
-              title="Copperbelt Logistics Hub" 
-              category="Industrial Complex" 
+
+            <ProjectCardSimple
+              title="Copperbelt Logistics Hub"
+              category="Industrial Complex"
               image="https://images.pexels.com/photos/2505693/pexels-photo-2505693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             />
           </div>
