@@ -54,7 +54,7 @@ const ProjectsPage: React.FC = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Our Portfolio</span>
+            <span className="text-secondary uppercase font-semibold text-sm tracking-wider">Our Portfolio<br></span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 relative inline-block pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-secondary">
               Completed Projects
             </h2>
